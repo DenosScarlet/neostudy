@@ -2,6 +2,8 @@ import Adapter.SDCard;
 import Adapter.PC;
 import Adapter.USBAdapter;
 import Adapter.USBCable;
+import Proxy.DBClass;
+import Proxy.DBProxy;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,14 +17,18 @@ public class Main {
         Facility facility = new Facility(coffeeGrinder);
         facility.start(CoffeType.AMERICANO);*/
 
-        USBCable usbCable = new USBCable();
+        /*USBCable usbCable = new USBCable();
         PC pc = new PC();
         pc.setConnection(usbCable);
 
         SDCard sdCard = new SDCard();
         USBAdapter usbAdapter = new USBAdapter(sdCard);
         PC pc2 = new PC();
-        pc2.setConnection(usbAdapter);
+        pc2.setConnection(usbAdapter);*/
+
+        DBClass dbClass = new DBClass();
+        DBProxy dbProxy = new DBProxy(dbClass);
+        dbProxy.connect();
 
     }
 }
