@@ -16,13 +16,15 @@ public class Main {
         String info = "Some info";
         LoggingSingleton loggingSingleton = LoggingSingleton.getInstance();
 
-        System.out.println(loggingSingleton.logg(testClass, info) + '\n');
+        System.out.println("- Singelton\n" + loggingSingleton.logg(testClass, info) + '\n');
 
+        System.out.println("- Factory");
         CoffeeGrinder coffeeGrinder = new CoffeeGrinder();
         Facility facility = new Facility(coffeeGrinder);
         facility.start(CoffeType.AMERICANO);
         System.out.println();
 
+        System.out.println("- Adapter");
         USBCable usbCable = new USBCable();
         PC pc = new PC();
         pc.setConnection(usbCable);
@@ -34,6 +36,7 @@ public class Main {
         pc2.setConnection(usbAdapter);
         System.out.println();
 
+        System.out.println("- Proxy");
         DBClass dbClass = new DBClass();
         DBProxy dbProxy = new DBProxy(dbClass);
         dbProxy.connect();
